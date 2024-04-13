@@ -13,6 +13,7 @@ const config = {
     encrypt: true,
   },
 };
+var poolConnection = await sql.connect(config);
 
 /*
     //Use Azure VM Managed Identity to connect to the SQL database
@@ -46,8 +47,6 @@ connectAndQuery();
 
 async function connectAndQuery() {
   try {
-    var poolConnection = await sql.connect(config);
-
     console.log("Reading rows from the Table...");
     var resultSet = await poolConnection.request()
       .query(`SELECT pc.Name as CategoryName,
@@ -69,9 +68,7 @@ async function connectAndQuery() {
     });
 
     // close connection only when we're certain application is finished
-    poolConnection.close();
   } catch (err) {
     console.error(err.message);
-    poolConnection.close();
   }
 }
