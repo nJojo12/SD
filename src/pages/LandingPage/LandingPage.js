@@ -104,7 +104,6 @@ const LandingPage = () => {
                       Login
                     </button>
                   </article>
-
                   <button className="login" onClick={handleSignup}>
                     Sign Up
                   </button>
@@ -143,8 +142,7 @@ const LandingPage = () => {
                         <option value="HR">HR</option>
                       </select>
                     </InputContainer>
-                    <Index child={childToParent} />
-
+                    <Index child={childToParent}/>
                     <button className="sign" onClick={sign}>
                       Sign Up
                     </button>
